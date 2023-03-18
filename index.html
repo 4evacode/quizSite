@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- FONT AWESOME -->
+    <script src="https://kit.fontawesome.com/c0d30b07c9.js" crossorigin="anonymous"></script>
+
+    <title>Quiz Website</title>
+</head>
+
+<body>
+
+    <!-- START QUIZ BUTTON -->
+
+    <div class="startBtn">
+        <button>Start Quiz</button>
+    </div>
+
+    <!-- INFO BOX -->
+
+    <div class="infoBox">
+
+        <div class="infoTitle">
+            <span>Some Rules of this Quiz</span>
+        </div>
+
+        <div class="infoList">
+            <div class="info">1. You will have only <span>15 seconds</span> for ever question.</div>
+            <div class="info">2. Once you select your answer, you cannot reselect.</div>
+            <div class="info">3. You cannot select any option once the time is up.</div>
+            <div class="info">4. You cannot exit the Quiz once it starts.</div>
+            <div class="info">5. You will get points on the basis of your correct answers.</div>
+        </div>
+
+        <div class="buttons">
+            <button class="quit">Exit Quiz</button>
+            <button class="restart">Continue</button>
+        </div>
+
+    </div>
+
+    <!-- QUIZ BOX -->
+    <div class="quizBox">
+
+        <header>
+            <div class="title">Awesome Quiz Application</div>
+            <div class="timer">
+                <div class="timeText">Time Left</div>
+                <div class="timerSec">15</div>
+                <div class="timeLine"></div>
+            </div>
+        </header>
+
+        <section>
+            
+            <div class="queText">
+                <!-- <span>How much money do you need in life?</span> -->
+            </div>
+
+            <div class="optionList">
+
+                <!-- <div class="option">
+                    <span>Under $1,000 </span>
+                    <div class="icon tick"><i class="fas fa-check"></i></div>
+                </div>
+                
+                <div class="option">
+                    <span>$1,000 - $5,000 </span>
+                    <div class="icon cross"><i class="fas fa-times"></i></div>
+                </div>
+
+                <div class="option">
+                    <span>$5,000 - $10,000 </span>
+                </div>
+
+                <div class="option">
+                    <span>Above $10,000 </span>
+                </div> -->
+
+            </div>
+        </section>
+
+        <!-- QUIZ BOX FOOTER -->
+        <footer>
+
+            <div class="totalQue">
+
+                <!-- <span><p>2</p>of<p>5</p>Questions</span> -->
+
+            </div>
+
+            <button class="nextBtn">Next Question</button>
+
+        </footer>
+
+    </div>
+
+<!-- RESULTS BOX -->
+    <div class="resultBox">
+
+        <div class="icon">
+            <i class="fas fa-crown"></i>
+        </div>
+
+        <div class="completeText">You have completed the Quiz!</div>
+
+        <div class="scoreText">
+            <!-- <span>and sorry, You got only <p>2</p> out of <p>5 </p></span> -->
+        </div>
+        
+        <div class="buttons">
+            <button class="restart">Replay Quiz</button>
+            <button class="quit">Quit Quiz</button>
+        </div>
+
+    </div>
+    <script src="question.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

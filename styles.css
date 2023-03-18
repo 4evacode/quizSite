@@ -1,0 +1,392 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    background-color: rgb(6, 130, 232);
+}
+
+/* BOXES */
+
+.startBtn,
+.infoBox,
+.quizBox,
+.resultBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 4px 8px 0 rgb(0, 0, 0,0.5), 
+                0px 6px 20px 0 rgb(0, 0, 0,0.9);
+    transition: all 0.3s ease;
+}
+
+.infoBox.activeInfo,
+.quizBox.activeQuiz,
+.resultBox.activeResult{
+    z-index: 5;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale((1));
+}
+
+/* START QUIZ BUTTON */
+
+.startBtn button{
+    font-size: 2rem;
+    font-weight: bold;
+    color: blue;
+    padding: 1rem 2rem;
+    outline: none;
+    border: none;
+    border-radius: .2rem;
+    background-color: rgb(227, 227, 239);
+    cursor: pointer;
+}
+
+/*INFORMATION BOX */
+
+.infoBox{
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale((0.9));
+
+    width: 30rem;
+    height: 15rem;
+    background-color: white;
+    border-radius: .5rem;
+    overflow: hidden;
+}
+
+.infoBox .infoTitle{
+    height: 3rem;
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0 2rem;
+}
+
+.infoBox .infoList{
+    padding: 0 2rem;
+}
+
+.infoBox .infoList .info{
+    margin: .5rem 0;
+    font-size: 1rem;
+}
+
+.infoBox .infoList .info span{
+    font-weight: lighter;
+    color: red;
+}
+
+.infoBox .buttons{
+    overflow: hidden;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 1rem;
+    border-top: 1px solid rgb(10, 10, 10);
+}
+
+
+/* BUTTONS */
+
+.buttons button{
+    margin: 0 5px;
+    height: 2rem;
+    width: 8rem;
+    border:  1px solid  rgb(25, 135, 232);
+    outline: none;
+    border-radius: .2rem;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.buttons .quit{
+    color: rgb(25, 135, 232);
+}
+
+.buttons .quit:hover{
+    color: rgb(251, 252, 253);
+    background-color: rgb(25, 135, 232);
+}
+
+.buttons .restart{
+    border-color: rgb(25, 135, 232);
+    color: rgb(251, 252, 253);
+    background-color: rgb(25, 135, 232);
+}
+
+.buttons .restart:hover{
+    background-color: rgb(6, 112, 205);
+}
+
+/* QUIZ BOX */
+
+.quizBox{
+    width: 30rem;
+    background-color: #fff;
+    border-radius: .2rem;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale((0.9));
+}
+
+.quizBox header{
+    position: relative;
+    z-index: 99;
+    height: 3.5rem;
+    padding: 0 2rem;
+    background-color: rgb(243, 238, 238);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0px 3px 5px 1px rgb(0, 0, 0,.2);  
+}
+
+.quizBox header .title{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.quizBox header .timer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 10rem;
+    height: 2.5rem;
+    background-color: rgb(161, 246, 246);
+    border: 1px solid brown;
+    border-radius: 5px;
+    padding: 0 8px;
+}
+
+.quizBox header .timeText{
+    font-weight: bold;
+    font-size: 1rem;
+    user-select: none;
+}
+
+.quizBox header .timer .timerSec{
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: rgb(0, 0, 0);
+    height: 2rem;
+    width: 2.5rem;
+    color: white;
+    text-align: center;
+    line-height: 2rem;
+    border-radius: 5px;
+    border: 2px solid rgb(199, 195, 195);
+    user-select: none;
+}
+
+.quizBox header .timeLine{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    /* width: 50%; */
+    background:  rgb(3, 115, 206);
+}
+
+.quizBox section{
+    padding: 2rem 2rem 1rem 2rem;
+    background-color: rgb(247, 243, 243);
+}
+
+.quizBox section .queText{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.quizBox section .optionList{
+    padding: 1.5rem 0;
+    display: block;
+}
+
+.quizBox section .optionList .option{
+    background-color: aliceblue;
+    border: 1px solid rgb(99, 99, 208);
+    border-radius: 3px;
+    padding: 8px 15px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all0.3s ease;
+}
+
+section .optionList .option:hover{
+    color: blue;
+    background-color: lightblue;
+    border-color: white;
+}
+
+section .optionList .option:last-child{
+    margin-bottom: 0;
+}
+
+.optionList .option .icon{
+    height: 1.4rem;
+    width: 1.4rem;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    text-align: center;
+    font-size: .9rem;
+    line-height: 20px;
+    pointer-events: none;
+}
+
+.optionList .option .icon.tick{
+    color: rgb(0, 139, 174);
+    border-color: rgb(4, 184, 94);
+    background-color: rgb(195, 219, 196);
+}
+
+.optionList .option .icon.cross{
+    color: rgb(0, 40, 50);
+    border-color: rgb(35, 119, 253);
+    border-color: rgb(255, 9, 9);
+    background-color: rgb(233, 201, 201);
+}
+
+.quizBox section .optionList .option.correct{
+    color: rgb(4, 134, 58);
+    border-color:rgb(236, 231, 250);
+    background-color: rgb(144, 226, 149);
+}
+
+.quizBox section .optionList .option.incorrect{
+    color: rgb(134, 4, 4);
+    border-color:rgb(236, 231, 250);
+    background-color: rgb(226, 144, 144);
+}
+
+.quizBox section .optionList .option.disabled {
+    pointer-events: none;
+}
+
+
+/* FOOTER */
+.quizBox footer{
+    height: 4rem;
+    width: 100%;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.quizBox footer .totalQue span{
+    display: flex;
+    user-select: none;
+}
+
+.quizBox footer .totalQue span p{
+    font-weight: 500;
+    padding: 0 5px;
+}
+
+.quizBox footer .totalQue span p:first-child{
+    padding-left: 0;
+}
+
+footer .nextBtn{
+    display: none;
+    padding: 0 .5rem;
+    height: 2rem;
+    font-size: .9rem;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    background-color: rgb(0, 149, 255);
+    color: white;
+    border-radius: 5px;
+    border: 1px solid rgb(2, 89, 165);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+footer .nextBtn:hover{
+    background-color: rgb(5, 64, 211);
+}
+
+/* RESULTS BOX */
+.resultBox{
+    background-color: white;
+    width: 30rem;
+    padding: 1.5rem 2rem;
+    border-radius: 5px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale((0.9));
+}
+
+.resultBox .icon{
+    font-size: 9rem;
+    color: rgb(9, 226, 226);
+    margin-bottom: 1rem;
+}
+
+.resultBox .completeText{
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.resultBox .scoreText span{
+    display: flex;
+    margin: 1rem 0;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.resultBox .scoreText span p{
+    font-weight: bold;
+    padding: 0 4px;
+}
+
+.resultBox .buttons {
+    
+    display: flex;
+    margin: 1rem 0;
+}
+
+.resultBox .buttons button{
+    margin: 0 1rem;
+    height: 2.5rem;
+    padding: 0 1rem;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 1px solid blue;  
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+
+
+
